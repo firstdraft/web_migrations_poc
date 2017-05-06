@@ -1,24 +1,5 @@
-# README
+# Web Migrations POC
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Students spend a disproportionate amount of of their mental energy trying to understand what migrations are. I'd like to abstract this away for the time being by creating a GUI for managing their database structure.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This is a proof of concept for what will eventually become a Rails engine for doing so. Start the server and navigate to `/dev/tables`
