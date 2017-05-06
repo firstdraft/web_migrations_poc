@@ -4,7 +4,11 @@ class Web::TablesController < ApplicationController
   # GET /web/tables
   # GET /web/tables.json
   def index
-    @web_tables = Web::Table.all
+    @tables = ActiveRecord::Base.connection.tables.map do |x|
+      x.classify.safe_constantize
+    end.compact
+
+    @most_columns = @tables.map { |t| t.columns.count }.max
   end
 
   # GET /web/tables/1

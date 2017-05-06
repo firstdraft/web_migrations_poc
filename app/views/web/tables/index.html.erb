@@ -1,25 +1,31 @@
-<p id="notice"><%= notice %></p>
+<table class="table table-responsive table-hover table-bordered">
+  <thead class="thead-inverse">
+    <th>
+      Table
+    </th>
 
-<h1>Web Tables</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
+    <th colspan="<%= @most_columns %>">
+      Columns
+    </th>
   </thead>
 
   <tbody>
-    <% @web_tables.each do |web_table| %>
+    <% @tables.each do |table| %>
       <tr>
-        <td><%= link_to 'Show', web_table %></td>
-        <td><%= link_to 'Edit', edit_web_table_path(web_table) %></td>
-        <td><%= link_to 'Destroy', web_table, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>
+          <%= table %>
+        </th>
+
+        <% table.columns.each do |column| %>
+          <td>
+            <%= column.name %>
+          </td>
+        <% end %>
+
+        <% (@most_columns - table.columns.count).times do %>
+          <td></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Web Table', new_web_table_path %>
