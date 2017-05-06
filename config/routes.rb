@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get "dev/tables" => "web/tables#index"
+  get "dev/tables" => "web/tables#index", as: :web_tables
+  get "dev/tables/:name" => "web/tables#show", as: :web_table
   resources :castings
   resources :actors
   resources :directors

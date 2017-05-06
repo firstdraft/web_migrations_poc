@@ -1,3 +1,7 @@
+<h1>
+  All tables
+</h1>
+
 <table class="table table-responsive table-hover table-bordered">
   <thead class="thead-inverse">
     <th>
@@ -13,7 +17,7 @@
     <% @tables.each do |table| %>
       <tr>
         <th>
-          <%= table %>
+          <%= link_to table, web_table_path(table) %>
         </th>
 
         <% table.columns.each do |column| %>

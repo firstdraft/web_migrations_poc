@@ -1,4 +1,54 @@
-<p id="notice"><%= notice %></p>
+<h1>
+  <%= @table %>
+</h1>
 
-<%= link_to 'Edit', edit_web_table_path(@web_table) %> |
-<%= link_to 'Back', web_tables_path %>
+<table class="table table-responsive table-hover table-bordered">
+  <thead class="thead-inverse">
+    <th>Name</th>
+    <th>SQL Type</th>
+    <th>Default</th>
+    <th>Type</th>
+    <th>Limit</th>
+    <th>Null</th>
+    <th>Precision</th>
+    <th>Scale</th>
+  </thead>
+
+  <tbody>
+    <% @table.classify.safe_constantize.columns.each do |column| %>
+    <tr>
+      <td>
+        <%= column.name	 %>
+      </td>
+
+      <td>
+        <%= column.sql_type	 %>
+      </td>
+
+      <td>
+        <%= column.default	 %>
+      </td>
+
+      <td>
+        <%= column.type	 %>
+      </td>
+
+      <td>
+        <%= column.limit	 %>
+      </td>
+
+      <td>
+        <%= column.null	 %>
+      </td>
+
+      <td>
+        <%= column.precision	 %>
+      </td>
+
+      <td>
+        <%= column.scale	 %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

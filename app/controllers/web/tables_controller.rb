@@ -1,6 +1,4 @@
 class Web::TablesController < ApplicationController
-  before_action :set_web_table, only: [:show, :edit, :update, :destroy]
-
   # GET /web/tables
   # GET /web/tables.json
   def index
@@ -14,6 +12,7 @@ class Web::TablesController < ApplicationController
   # GET /web/tables/1
   # GET /web/tables/1.json
   def show
+    @table = params[:name]
   end
 
   # GET /web/tables/new
@@ -64,15 +63,4 @@ class Web::TablesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_web_table
-      @web_table = Web::Table.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def web_table_params
-      params.fetch(:web_table, {})
-    end
 end
